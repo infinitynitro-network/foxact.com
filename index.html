@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coin Counter</title>
+  <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+        margin: 0;
+        background-color: rgb(17, 17, 17);
+        flex-direction: column;
+        color: white;
+      }
+      
+   .main-counter{
+      position: fixed;
+      top: 0;
+      width: auto;
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+
+    }
+      
+    img {
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        transition: transform 0.2s; /* Add transition effect */
+        
+     }
+     
+        
+    img:active {
+            transform: scale(1.2); /* Zoom in effect */
+     }
+        
+     img.zoom-out {
+            transform: scale(0.8); /* Zoom out effect */
+    }
+      
+      #coin-counter {
+        font-size: 27px;
+        font-weight: bold;
+       
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+
+      #fxt {
+        
+          font-size: 30px;
+          font-family: fantasy;
+          text-shadow: 0 0 5px rgb(255, 94, 0),
+          0 0 25px rgb(255, 115, 0),
+          0 0 50px rgb(0,140,255),
+          0 0 100px rgb(0,140,255);;
+            }
+
+          .claim {
+            margin-left: 30px;
+            padding: 10px 20px;
+            border: none;
+            font-size: 13px;
+            color: #fff;
+            border-radius: 7px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.5s;
+            
+            transition-property: box-shadow;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          }
+          
+          .claim  {
+            background: rgb(0,140,255);
+            box-shadow: 0 0 25px rgb(0,140,255);
+          }
+          
+          .claim:hover {
+            box-shadow: 0 0 5px rgb(0,140,255),
+                        0 0 25px rgb(0,140,255),
+                        0 0 50px rgb(0,140,255),
+                        0 0 100px rgb(0,140,255);
+          }   
+      
+      #uid-display {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Fira Code', monospace;
+    }
+
+    .coinimg{
+      height: 30px;
+      width: 30px;
+      
+      margin-left: 10px;
+      margin-right: 10px;
+
+    }
+  
+    
+    .containeri {
+    position: fixed;
+    height: 5px;
+    bottom: 50px;
+    width: 200px;
+    background-color: #6200ff;
+    color: #ffffff;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 100;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    animation: zoomOut 1s infinite;
+}
+  
+  .text-top, .text-bottom {
+    margin: 1px 0;
+} 
+  @keyframes zoomOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+  .bottom-nav a {
+      text-decoration: none;
+      color: #6200ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  
+
+  .bottom-nav span {
+      font-weight: bold;
+  }
+
+  .bottom-nav a:active {
+      transform: translateY(10px);
+      background-color: #242424d7;
+      border-radius: 30px;
+  }
+  
+
+  </style>
+</head>
+<body>
+  <div id="uid-display"></div>
+  <div class="main-counter">
+    <div class="fxt" id="fxt">FXT</div>
+    <div class="coinimg" id="coinimg">
+      <img src="https://cdn3d.iconscout.com/3d/premium/thumb/coin-5261880-4403225.png?f=webp" id="coinimg" class="coinimg">
+    </div>
+    <div class="coin-counter" id="coin-counter"> </div>
+    <div class="claim">CLAIM</div>
+  </div>
+  <img src="C:\Users\ayush\Downloads\WhatsApp_Image_2024-06-14_at_19.09.42_4375f197-removebg-preview.png" id="coin-image" alt="Coin Image">
+
+  
+  
+  <script>
+    // Generate a unique ID for the user if it's their first visit
+    let uid = localStorage.getItem('uid');
+    if (!uid) {
+      uid = Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('uid', uid);
+    }
+    document.getElementById('uid-display').innerText = ` ${uid}`;
+    
+    // Get our image and counter elements
+    const coinImage = document.getElementById('coin-image');
+    const coinCounter = document.getElementById('coin-counter');
+    
+    // Set our initial coin count
+    let coinCount = 0.00000000;
+    if (localStorage.getItem('coinCount')) {
+      coinCount = parseFloat(localStorage.getItem('coinCount'));
+    }
+  
+    // Update the coin counter element with the saved coin count
+    function updateCoinCounter() {
+      coinCounter.textContent = ` ${coinCount.toFixed(7)}`;
+    }
+  
+    // Call the updateCoinCounter function when the page loads
+    updateCoinCounter();
+  
+    // Add an event listener to our image
+    coinImage.addEventListener('click', () => {
+      // Increment our coin count when the image is clicked
+      coinCount += 0.0000001;
+      updateCoinCounter();
+      localStorage.setItem('coinCount', coinCount);
+      
+      // Add zoom out effect
+      coinImage.classList.add('zoom-out');
+      setTimeout(() => {
+        coinImage.classList.remove('zoom-out');
+      }, 500); // Remove zoom out effect after 500ms
+    });
+    
+    // Referral system
+    let referrals = {};
+    if (localStorage.getItem('referrals')) {
+      referrals = JSON.parse(localStorage.getItem('referrals'));
+    }
+    
+    // Get the referral link
+    const referralLink = `https://t.me/Infinitynitrobot/Infinitynitro?uid=${uid}`;
+    document.getElementById('claim').addEventListener('click', () => {
+      // Claim bonus for each referral
+      Object.keys(referrals).forEach((referralUid) => {
+        coinCount += 10000;
+        updateCoinCounter();
+        localStorage.setItem('coinCount', coinCount);
+      });
+    });
+
+
+  </script>
+
+
+
+  
+
+
+
+
+
+
+
+    <!-- Share button to trigger showing of social sharing buttons -->
+    <button class="containeri" id="containeri">
+      <div class="text-top">Invite a friend</div>
+      <div class="text-bottom" font-size="10px">🪙+2500</div>
+    </button>
+
+    <!-- AddToAny social sharing buttons (initially hidden) -->
+    <div id="shareButtons" class="a2a_kit a2a_kit_size_32 a2a_default_style" style="display: none;">
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_telegram"></a>
+        <a class="a2a_button_whatsapp"></a>
+        <a class="a2a_button_x"></a>
+    </div>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+
+    <script>
+      // JavaScript to toggle visibility of social sharing buttons
+      document.addEventListener("DOMContentLoaded", function() {
+        var shareButton = document.getElementById("containeri");
+        var shareButtons = document.getElementById("shareButtons");
+    
+        // Toggle display of share buttons on click
+        shareButton.addEventListener("click", function() {
+          // Simulate sharing verification (replace with actual backend logic)
+          var sharedSuccessfully = confirm("Coins claim under 1 minute after verified share");
+          if (sharedSuccessfully) {
+            shareButtons.style.display = "block";
+            // Set a timeout to add the bonus after 20 seconds
+            setTimeout(function() {
+              coinCount += 1000;
+              updateCoinCounter();
+              alert("Congratulations! You've claimed your bonus.");
+              // Here you would typically call a backend API to log the sharing action and award the bonus
+              // Example: fetch('/award-bonus', { method: 'POST', body: JSON.stringify({ user: 'userID' }) });
+            }, 20000); // 20000 milliseconds = 20 seconds
+          } else {
+            alert("You need to share the link to claim the bonus.");
+          }
+        });
+      });
+    </script>
+</head>
+<body>
+    
