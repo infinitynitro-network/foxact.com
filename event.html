@@ -1,1 +1,63 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<title>Fixed Screen with Image and Text</title>
+	<style>
+		* {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+		
+		/* Make the screen fixed and not scrollable */
+		body {
+			overflow: hidden;
+			height: 100vh;
+			margin: 0;
+            background-color: black;
+			-webkit-tap-highlight-color: transparent;
+		}
+		
+		/* Center the image horizontally and vertically */
+		.image-container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+		}
+		
+		/* Add some basic styling to the image */
+		img {
+			width: 500px;
+            height: auto; /* adjust the width to your liking */
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		
+		/* Style the text below the image */
+		.text {
+			font-size: 24px;
+			color: #333;
+			margin-top: 10px;
+            font-size: 30px;
+            font-weight: 600;
+            color:white;
+		}
+	</style>
+</head>
+<body>
+	<div class="image-container">
+		<img src="https://cdn3d.iconscout.com/3d/premium/thumb/coming-soon-8621772-6858022.png?f=webp" alt="Image">
+		<div class="text">!! Events are comming soon</div>
+	</div>
+</body>
+</html> 
