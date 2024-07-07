@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn Coins</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+      * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+        body {
+            margin: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 1000px;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .faucet-image {
+            width: x;
+            height: 150px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+        
+        .tasks {
+            width: 100%;
+            max-width: auto;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-right: auto; 
+           
+                
+               
+                  font-family: "Fustat", sans-serif;
+                  font-optical-sizing: auto;
+                  font-weight: weight;
+                  font-style: normal;
+                
+        }
+        
+        .task-button {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            font-family: "Fustat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #202020;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+       
+        
+       
+        
+       
+        .advertising {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            
+            transform: translateX(-50%);
+            height: 20px;
+            width: 70%;
+            background-color: #383838;
+            color: #c9c9c9;
+            padding: 20px ;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 20px;
+            z-index: 100;
+            border: 1px solid #5c5c5c;
+            overflow: hidden;
+        }
+        
+          
+          .icons{
+            height: 58px;
+            width: 58px;
+            margin-right: auto;
+          }
+        
+          .icon-text{
+            font-family: "Fustat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+          }
+
+          .popup {
+            display: none;
+            position: fixed;
+         
+
+            top: 50%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            font-family: "Fustat", sans-serif;
+            font-optical-sizing: auto;
+           
+            font-style: normal;
+          
+            border-radius: 10px;
+            height: 300px;
+            width: 300px;
+           
+            opacity: 1;
+            background: rgba(19, 18, 18, 0.95);
+          }
+       .popup.show {
+            display: block;
+          }
+        .youtubeimg{
+            position: absolute;
+            width: 110px;
+            height: 110px;
+           
+          left: 95px;
+         top: -13px;
+           width: 110px;
+              height: 110px;
+        }
+          .buttonxs{
+            width: 100%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            
+            padding: 15px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #202020;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            
+        }
+        .poptxt{
+            position: absolute;
+            left: 61px;
+            top: 97px;
+            width: 181px;
+            height: 19px; 
+
+        }
+
+
+        .reward{
+            position: absolute;
+             left: 128px;
+          top: 150px;
+          width: 65px;
+            height: 19px;
+            font-family: "Fustat", sans-serif;
+                  font-optical-sizing: auto;
+                 
+                  font-style: normal;
+                  font-weight: bold;
+                  font-size: 21px;
+                  color: #48ff00;
+        }
+         .rewardimg{
+            position: absolute;
+           left: 95px;
+          top: 143px;
+              width: 30px;
+               height: 30px;
+         } 
+         .claim-button2{
+            position: absolute;
+            left: 95px;
+               top: 188px;
+          width: 110px;
+         height: 42px;
+         color: #fff;
+         border-radius: 40px;
+           opacity: 1;
+           background: #9000FF;
+           font-family: "Fustat", sans-serif;
+                  font-optical-sizing: auto;
+                  font-weight: weight;
+                  font-style: normal;
+                  outline: none;
+                  font-weight: 500;
+                  font-size: 20px;
+                  border: none;
+                  border-radius: 45px;
+                  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                  transition: all 0.3s ease 0s;
+                  cursor: pointer;
+                  outline: none;
+               
+         }
+         .claim-button {
+            position: absolute;
+           left: 71px;
+           top: 241px;
+             width: 158px;
+           height: 46px; 
+           font-size: 20px;
+           font-family: "Fustat", sans-serif;
+           font-optical-sizing: auto;
+           font-weight: 500px;
+           font-style: normal;
+            
+            
+            font-weight: 500;
+            color: #ffffff;
+            background-color: #000000;
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+          
+          }
+          
+        .count{
+            opacity: 0%;
+        } 
+
+
+        .back{
+            margin-top: 10%;
+            margin-right: auto;
+            height: 20px;
+            width: 20px;
+            margin-left: 2%;
+           position:fixed;
+        }
+    </style>
+</head>
+<body>
+    <a class="back" href="index.html">
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/back-4897647-4081330.png?f=webp" height="70px" alt="Back" />
+    </a>
+    <div class="container">
+        <div class="header">
+           
+            <img src="https://github.com/infinitynitro-network/infinity.com/assets/173025511/d4c07c2c-1005-45b1-8e99-8eeace9bca3b" alt="Faucet Image" class="faucet-image">
+            <h1>Earn Coins</h1>
+        </div>
+        <h2>Daily task</h2>
+        <div class="tasks">
+           <div class="task-button">
+           
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/checklist-8862223-7285587.png?f=webp" alt="Faucet Image" class="icons"> 
+             <button class="task-button youtube"> <span class="icon-text"></span>Daily Reward</button>  
+             
+             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-5621298-4673842.png?f=webp" alt="Faucet Image" class="icons"> 
+          
+        </div>
+        <div class="tasks">
+            <div class="task-button">
+             <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-youtube-5680955-4729294.png?f=webp" alt="Faucet Image" class="icons">
+             <button class="task-button youtube"><span class="icon-text">Watch latest video</span></button>
+
+             <img  src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-5621298-4673842.png?f=webp" alt="Faucet Image" class="icons"> 
+
+         </div>
+        </div>
+        
+            <h2>Task</h2>
+            
+           
+           
+               
+                  
+                <div class="task-button">
+                 <img  src="https://cdn3d.iconscout.com/3d/premium/thumb/send-5591115-4652892.png?f=webp" alt="Faucet Image" class="icons"> 
+                 
+                 <button id="button-1" class="task-button">Join our Tg channel</button>
+                 <img src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-5621298-4673842.png?f=webp" alt="Faucet Image" class="icons"> 
+
+             </div>
+            
+                <div class="task-button">
+
+                 <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-twitter-9730451-7970192.png?f=webp" alt="Faucet Image" class="icons"> 
+                 
+                 <button class="task-button" id="button-2">Follow our x</button>
+                 <img src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-5621298-4673842.png?f=webp" alt="Faucet Image" class="icons"> 
+
+             </div>
+             
+        
+             
+                <div class="task-button">
+
+                 <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-instagram-5680948-4729287.png?f=webp" alt="Faucet Image" class="icons"> 
+                 
+                 <button class="task-button" id="button-3">Follow our instgram</button>
+                 <img src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-5621298-4673842.png?f=webp" alt="Faucet Image" class="icons"> 
+
+             </div>
+             
+                <div class="task-button">
+                 <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-youtube-8572454-6786110.png?f=webp" alt="Faucet Image" class="icons"> 
+                 
+                 <button class="task-button" id="button-4">Subscribe our youtube</button>
+                 <img src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-5621298-4673842.png?f=webp" alt="Faucet Image" class="icons"> 
+
+                 </div>
+        <div class="advertising">
+            Advertising
+        </div>
+    </div>
+    
+   
+    <p class="count" > <span   id="coins-count">0</span></p>
+    
+ 
+    <div id="popup-1" class="popup">
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/send-5591115-4652892.png?f=webp" alt="Faucet Image" class="youtubeimg"> 
+
+        <span class="poptxt">Join our Tg channel</span>
+        <span class="reward">+10000</span>
+        <img class="rewardimg" src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-4604543-3816872.png?f=webp" alt="Faucet Image" > 
+
+        <button class="claim-button2" onclick="window.location.href='https://t.me/foxactcommnunity';">Join</button>
+        <button class="claim-button" data-link="https://t.me/foxactcommnunity">Claim </button>
+      </div>
+      <div id="popup-2" class="popup">
+        <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-twitter-9730451-7970192.png?f=webp" alt="Faucet Image" class="youtubeimg"> 
+
+        <span class="poptxt">Follow on x</span>
+        <span class="reward">+10000</span>
+        <img class="rewardimg" src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-4604543-3816872.png?f=webp" alt="Faucet Image" > 
+        <button class="claim-button2" onclick="window.location.href='https://x.com/Foxactcommunity?t=hTi3yMZ-mNIQAPpF8a8X4w&s=09';">Join</button>
+        <button class="claim-button" data-link="https://x.com/Foxactcommunity?t=hTi3yMZ-mNIQAPpF8a8X4w&s=09">Claim </button>
+      </div>
+      <div id="popup-3" class="popup">
+        <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-instagram-5680948-4729287.png?f=webp" alt="Faucet Image" class="youtubeimg"> 
+
+        <span class="poptxt">Follow our instgram</span>
+        <span class="reward">+10000</span>
+        <img class="rewardimg" src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-4604543-3816872.png?f=webp" alt="Faucet Image" > 
+        <button class="claim-button2" onclick="window.location.href='https://www.instagram.com/foxact.app/?igsh=Y3JydmI0eGh2YXlu';">Join</button>
+        <button class="claim-button" data-link="https://www.instagram.com/foxact.app/?igsh=Y3JydmI0eGh2YXlu">Claim</button>
+      </div>
+      <div id="popup-4" class="popup">
+        <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-youtube-8572454-6786110.png?f=webp" alt="Faucet Image" class="youtubeimg"> 
+
+        <span class="poptxt">Subscribe our youtube</span>
+        <span class="reward">+10000</span>
+        <img class="rewardimg" src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-4604543-3816872.png?f=webp" alt="Faucet Image" > 
+        <button class="claim-button2" onclick="window.location.href='https://www.youtube.com/@foxact.community';">Join</button>
+        <button class="claim-button" data-link="https://www.youtube.com/@foxact.community">Claim</button>
+      </div>
+      <div id="popup-5" class="popup">
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-5621298-4673842.png?f=webp" alt="Faucet Image" class="youtubeimg"> 
+
+        <span class="poptxt">Subscribe our youtube</span>
+        <span class="reward">+10000</span>
+        <img class="rewardimg" src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-4604543-3816872.png?f=webp" alt="Faucet Image" > 
+        <button class="claim-button2"onclick="window.location.href='https://www.youtube.com/@foxact.community';">Join</button>
+        <button class="claim-button" data-link="https://www.youtube.com/@foxact.community">Claim </button>
+      </div>
+    
+      <script>
+        let coins = 0;
+        let claimed = {};
+        if (localStorage.getItem('coins')) {
+          coins = parseInt(localStorage.getItem('coins'));
+        }
+        if (localStorage.getItem('claimed')) {
+          claimed = JSON.parse(localStorage.getItem('claimed'));
+        }
+        document.getElementById('coins-count').textContent = coins;
+    
+        // Add event listeners to each button
+        document.querySelectorAll('button').forEach((button) => {
+          button.addEventListener('click', (e) => {
+            // Get the corresponding popup element
+            const popupId = `popup-${e.target.id.split('-')[1]}`;
+            const popup = document.getElementById(popupId);
+            popup.classList.add('show');
+    
+           
+          });
+        });
+        document.querySelectorAll('button').forEach((button) => {
+            button.addEventListener('click', (e) => {
+              // Get the corresponding popup element
+              const popupId = `popup-${e.target.id.split('-')[1]}`;
+              const popup = document.getElementById(popupId);
+          
+              // Close all other popups
+              document.querySelectorAll('.popup').forEach((otherPopup) => {
+                if (otherPopup !== popup) {
+                  otherPopup.classList.remove('show');
+                }
+              });
+          
+              // Show the current popup
+              popup.classList.add('show');
+            });
+          });
+       // ...
+
+      // Add event listeners to each claim button
+      document.querySelectorAll('.claim-button').forEach((button) => {
+        const link = button.getAttribute('data-link');
+        if (claimed[link]) {
+          button.disabled = true;
+          button.textContent = 'Claimed'; // change text to "Claimed" if already claimed
+      
+          // Add the image to the button if it's already claimed
+          const img = document.createElement('img');
+          img.src = 'https://cdn3d.iconscout.com/3d/premium/thumb/successfully-approve-5331611-4659611.png?f=webp'; // replace with your image URL
+          img.style.position = 'flex';
+          img.style.left = '242px';
+          img.style.top = '247px';
+          img.style.width = '30px';
+          img.style.height = '30px';
+          button.appendChild(img);
+        }
+      
+        button.addEventListener('click', (e) => {
+          // Open the link in a new tab
+          window.open(link, '_blank');
+      
+          // Add 1000 coins to the user's balance
+          coins += 1000;
+          localStorage.setItem('coins', coins);
+          document.getElementById('coins-count').textContent = coins;
+      
+          // Set claimed to true
+          claimed[link] = true;
+          localStorage.setItem('claimed', JSON.stringify(claimed));
+      
+          // Disable the claim button and change text to "Claimed"
+          e.target.disabled = true;
+          e.target.textContent = 'Claimed';
+      
+          // Add the image to the button
+          const img = document.createElement('img');
+          img.src = 'https://cdn3d.iconscout.com/3d/premium/thumb/successfully-approve-5331611-4659611.png?f=webp'; // replace with your image URL
+          img.style.position = 'block';
+          img.style.left = '250px';
+          img.style.top = '247px';
+          img.style.width = '30px';
+          img.style.height = '30px';
+          e.target.appendChild(img);
+        });
+      }); 
+      </script>
+
+</body>
+</html>
