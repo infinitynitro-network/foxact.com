@@ -1,314 +1,488 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Coin Counter</title>
-  <style>
-       
-        #uid-display {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        font-size: 18px;
-        font-weight: bold;
-    }
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dollar and Numbers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap" rel="stylesheet">
 
+  <style>
+       /* Add this to prevent zooming on mobile devices */
+       * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
     body {
+      background-color: #000000;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      margin: 0;
+    }
+
+  .container {
+    
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+   .container2 {
         display: flex;
-        justify-content: center;
         align-items: center;
-        height: 100vh; /* Full viewport height */
-        margin: 0;
-        background-color: rgb(17, 17, 17);
         flex-direction: column;
-        color: white;
+       
+    
+    
+    
+
+      }
+  .row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
       
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently supported by most browsers */
+    }
+
+  .dollar-img {
+      width: 70px;
+      height: 70px;
+      box-shadow: 0px -1px 100px 50px rgba(161, 0, 255, 0.3);
+      object-fit: cover;
+      background: rgb(46, 8, 68);
+      margin-right: 20px;
+      padding: 10px;
+      border-radius: 50%;
+     
+
+    }
+
+  .numbers {
+      margin-right: 100px;
+      font-size: 3em;
+    
+   
+      
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+      
+      
       }
       
-   .main-counter{
-      position: fixed;
-      top: 0;
-      width: auto;
-      background-color: rgba(0, 0, 0, 0);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-
-    }
-      
-    img {
+      .silver-img {
         width: 200px;
         height: 200px;
         cursor: pointer;
-        transition: transform 0.2s; /* Add transition effect */
-        
-     }
-     
-        
-    img:active {
-            transform: scale(1.2); /* Zoom in effect */
-     }
-        
-     img.zoom-out {
-            transform: scale(0.8); /* Zoom out effect */
-    }
-      
-      #coin-counter {
-        font-size: 27px;
-        font-weight: bold;
+        margin-top: 20px;
+        border-radius: 50%;
+        transition: transform 0.5s; /* add transition effect */
+    
        
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
-
-      #fxt {
-        
-          font-size: 30px;
-          font-family: fantasy;
-          text-shadow: 0 0 5px rgb(255, 94, 0),
-          0 0 25px rgb(255, 115, 0),
-          0 0 50px rgb(0,140,255),
-          0 0 100px rgb(0,140,255);;
-            }
-
-          .claim {
-            margin-left: 30px;
-            padding: 10px 20px;
-            border: none;
-            font-size: 13px;
-            color: #fff;
-            border-radius: 7px;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: 0.5s;
-            
-            transition-property: box-shadow;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-          }
-          
-          .claim  {
-            background: rgb(0,140,255);
-            box-shadow: 0 0 25px rgb(0,140,255);
-          }
-          
-          .claim:hover {
-            box-shadow: 0 0 5px rgb(0,140,255),
-                        0 0 25px rgb(0,140,255),
-                        0 0 50px rgb(0,140,255),
-                        0 0 100px rgb(0,140,255);
-          }   
-      
-      #uid-display {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: 'Fira Code', monospace;
-        opacity: 0%;
+        -webkit-tap-highlight-color: transparent; 
     }
 
-    .coinimg{
-      height: 30px;
-      width: 30px;
-      
-      margin-left: 10px;
-      margin-right: 10px;
+s
 
-    }
-  
     
-    .containeri {
-    position: fixed;
-    height: 5px;
-    bottom: 50px;
-    width: 200px;
-    background-color: #6200ff;
-    color: #ffffff;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+  .silver-img.flip {
+      transform: rotateY(180deg); /* add flip effect */
+    }
+
+  .silver-img.vibrate {
+      animation: vibrate 0.5s linear infinite;
+    }
+
+    @keyframes vibrate {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(50px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+  .additional-img {
+        margin-top: 20px;
+        padding: 20px;
+        width: 70px;
+        height: 70px;
+      
+        object-fit: cover;
+        border-radius: 50%;
+       
+
+    }
+  .button1{
+   margin-right: 
+   50px;
+   text-align: center;
+    
+    font-family: "Ubuntu", sans-serif;
+   
+    font-style: normal;
+  
+   font-weight: 500;
+    
+   
+    margin-top: 20px;
+    color: #000000;
+    font-size: 19px;
+    width: 109px;
+    height: 43px;
     border-radius: 10px;
-    z-index: 100;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    animation: zoomOut 1s infinite;
-}
-  
-  .text-top, .text-bottom {
-    margin: 1px 0;
-} 
-  @keyframes zoomOut {
-    0% {
-        transform: scale(1);
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
     }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-  .bottom-nav a {
-      text-decoration: none;
-      color: #6200ff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  
-
-  .bottom-nav span {
-      font-weight: bold;
-  }
-
-  .bottom-nav a:active {
-      transform: translateY(10px);
-      background-color: #242424d7;
-      border-radius: 30px;
-  }
-  
-
-  </style>
-</head>
-<body>
-  <div id="uid-display"></div>
-  <div class="main-counter">
-    <div class="fxt" id="fxt">FXT</div>
-    <div class="coinimg" id="coinimg">
-      <img src="https://cdn3d.iconscout.com/3d/premium/thumb/coin-5261880-4403225.png?f=webp" id="coinimg" class="coinimg">
-    </div>
-    <div class="coin-counter" id="coin-counter"> </div>
-    <div class="claim">CLAIM</div>
-  </div>
-  <img src="https://raw.githubusercontent.com/infinitynitro-network/foxact.com/main/WhatsApp_Image_2024-06-14_at_19.09.42_4375f197-removebg-preview.png" id="coin-image" alt="Coin Image">
-
-  
-  
-  <script>
-    // Generate a unique ID for the user if it's their first visit
-    let uid = localStorage.getItem('uid');
-    if (!uid) {
-      uid = Math.random().toString(36).substr(2, 9);
-      localStorage.setItem('uid', uid);
-    }
-    document.getElementById('uid-display').innerText = ` ${uid}`;
-    
-    // Get our image and counter elements
-    const coinImage = document.getElementById('coin-image');
-    const coinCounter = document.getElementById('coin-counter');
-    
-    // Set our initial coin count
-    let coinCount = 0.00000000;
-    if (localStorage.getItem('coinCount')) {
-      coinCount = parseFloat(localStorage.getItem('coinCount'));
-    }
-  
-    // Update the coin counter element with the saved coin count
-    function updateCoinCounter() {
-      coinCounter.textContent = ` ${coinCount.toFixed(7)}`;
-    }
-  
-    // Call the updateCoinCounter function when the page loads
-    updateCoinCounter();
-  
-    // Add an event listener to our image
-    coinImage.addEventListener('click', () => {
-      // Increment our coin count when the image is clicked
-      coinCount += 0.0000001;
-      updateCoinCounter();
-      localStorage.setItem('coinCount', coinCount);
+    .button2{
+        
+      text-align: center;
       
-      // Add zoom out effect
-      coinImage.classList.add('zoom-out');
-      setTimeout(() => {
-        coinImage.classList.remove('zoom-out');
-      }, 500); // Remove zoom out effect after 500ms
-    });
-    
-    // Referral system
-    let referrals = {};
-    if (localStorage.getItem('referrals')) {
-      referrals = JSON.parse(localStorage.getItem('referrals'));
-    }
-    
-    // Get the referral link
-    const referralLink = `https://t.me/Infinitynitrobot/Infinitynitro?uid=${uid}`;
-    document.getElementById('claim').addEventListener('click', () => {
-      // Claim bonus for each referral
-      Object.keys(referrals).forEach((referralUid) => {
-        coinCount += 10000;
-        updateCoinCounter();
-        localStorage.setItem('coinCount', coinCount);
-      });
-    });
+      
+       font-family: "Ubuntu", sans-serif;
+       font-weight: 500;
+       font-style: normal;
+     
+      
+       
+       margin-top: 20px;
+       color: #fff;
+       font-size: 19px;
+       width: 109px;
+       height: 43px;
+       border-radius: 10px;
+       background: #414141;
+       border: 1px solid #FFFFFF;
+       cursor: pointer;
+       }
 
 
-  </script>
+       .bottom-nav {
+           position: fixed;
+           bottom: 60px;
+           left: 50%;
+           
+           transform: translateX(-50%);
+           height: 30px;
+           width: 79%;
+           background-color: #383838;
+           color: #c9c9c9;
+           padding: 20px ;
+           display: flex;
+           justify-content: space-around;
+           align-items: center;
+           border-radius: 20px;
+           z-index: 100;
+           border: 1px solid #5c5c5c;
+           overflow: hidden;
+           -webkit-tap-highlight-color: transparent; 
+           font-family: "Fustat", sans-serif;
+           font-optical-sizing: auto;
+           font-weight:lighter;
+           font-style: normal;
+          
+           
+         }
+   
+           .bottom-nav a {
+               text-decoration: none;
+               color: #ffffff;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               padding: 10px;
+               font-size: 14px;
+               
+           }
+   
+           .bottom-nav img {
+               width: 35px;
+               height: 35px;
+              
+               margin-bottom: 6px;
+           }
+   
+   
+   
+   
+           .bottom-nav span {
+               font-weight: bold;
+           }
+   
+           .bottom-nav a:active {
+               transform: translateY(1px);
+               background-color: #474747d7;
+               border-radius: 10px;
+           }
 
-
-
-  
-
-
-
-
-
-
-
-    <!-- Share button to trigger showing of social sharing buttons -->
-    <button class="containeri" id="containeri">
-      <div class="text-top">Invite a friend</div>
-      <div class="text-bottom" font-size="10px">🪙+2500</div>
-    </button>
-
-    <!-- AddToAny social sharing buttons (initially hidden) -->
-    <div id="shareButtons" class="a2a_kit a2a_kit_size_32 a2a_default_style" style="display: none;">
-        <a class="a2a_dd" href="https://infinitynitro-network.github.io/foxact.com"></a>
-        <a class="a2a_button_facebook"></a>
-        <a class="a2a_button_telegram"></a>
-        <a class="a2a_button_whatsapp"></a>
-        <a class="a2a_button_x"></a>
-    </div>
-    <script async src="https://infinitynitro-network.github.io/foxact.com/"></script>
-
-    <script>
-      // JavaScript to toggle visibility of social sharing buttons
-      document.addEventListener("DOMContentLoaded", function() {
-        var shareButton = document.getElementById("containeri");
-        var shareButtons = document.getElementById("shareButtons");
-    
-        // Toggle display of share buttons on click
-        shareButton.addEventListener("click", function() {
-          // Simulate sharing verification (replace with actual backend logic)
-          var sharedSuccessfully = confirm("Coins claim under 1 minute after verified share");
-          if (sharedSuccessfully) {
-            shareButtons.style.display = "block";
-            // Set a timeout to add the bonus after 20 seconds
-            setTimeout(function() {
-              coinCount += 0.02500;
-              updateCoinCounter();
-              alert("Congratulations! You've claimed your bonus.");
-              localStorage.setItem('coinCount', coinCount);
-              // Here you would typically call a backend API to log the sharing action and award the bonus
-              // Example: fetch('/award-bonus', { method: 'POST', body: JSON.stringify({ user: 'userID' }) });
-            }, 20000); // 20000 milliseconds = 20 seconds
-          } else {
-            alert("You need to share the link to claim the bonus.");
+           .popup-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background-color: #000000;
+            padding: 20px;
+            border: 1px solid #FFFFFF;
+            border-radius: 20px;
+            width: 300px;
+            text-align: center;
+            color: #ffffff;
           }
-        });
-      });
-    </script>
+          
+          .popup {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+          }
+          
+          h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          
+          p {
+            font-size: 18px;
+            margin-bottom: 20px;
+          }
+          
+          .claim-button {
+            background-color: #FFFFFF;
+            color: #271f1f;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10% auto;
+            border-radius: 50px;
+          }
+          
+          .claim-button:hover {
+            background-color: #CCCCCC;
+          }
+
+
+          .ads{
+            height: 70px;
+            width: 70px;
+            display: block;
+           cursor: pointer;
+            margin-left:  auto; 
+
+          }
+
+
+        
+
+
+
+
+          .adsbutton {
+            display: block;
+            cursor: pointer;
+             top: 10px;
+           right: 20px;
+            height: 30px;
+            width: 140px;
+            background-color: rgb(53, 53, 53);
+            border: none;
+            color: white;
+            
+            cursor: pointer;
+            border-radius: 15px;
+          
+            position: fixed; /* to make the button a positioning context */
+            padding: 10px; /* add some padding to the button */
+          }
+          
+          .rocket {
+            width: 30px;
+            height: 30px;
+            background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/space-shuttle-flying-9077681-7460825.png?f=webp');
+            background-size: cover;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            position: absolute;
+    
+          }
+          
+          .coinads {
+            width: 22px;
+            height: 22px;
+            background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/coin-5204463-4340787.png?f=webp');
+            background-size: cover;
+            position: absolute;
+            right: 70px;
+            bottom: 4px;
+          }
+          
+          .watchads {
+            position: absolute;
+            left: 50px;
+            top: 0px;
+            font-size:15px;
+            font-weight: bold;
+            color: #FFFFFF;
+            font-family: "Fustat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+          }
+          
+          .rewardcoin {
+            position: absolute;
+            right: 10px;
+            bottom: 4px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFFFFF;
+            font-family: "Fustat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+          }
+
+        
+ </style>
 </head>
 <body>
+  
+ <div class="container">
+  <a href="https://dolatiaschan.com/4/7698687" target="_blank" rel="noopener">
+    <div class="adsbutton">
+      <p class="rocket"></p>
+      <div class="coinads"></div>
+      <span class="watchads">Watch Ads</span>
+      <span class="rewardcoin">+1000</span>
+    </div>
+  </a>
+                                               
+   <div class="row">
+     
     
+
+     <img src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-4540902-3769806.png?f=webp" alt="Dollar" class="dollar-img">
+     <div class="numbers" id="numbers">0</div>
+     
+   </div>
+   <div class="ads">
+    <a href="ads.html" > <img src="https://cdn3d.iconscout.com/3d/premium/thumb/ads-11066612-8885267.png?f=webp" alt="Dollar" class="ads"></a></div>
+   <img src="https://github.com/infinitynitro-network/infinity.com/assets/173025511/cc12875e-f8c6-473a-afd7-77fd03954380" alt="Silver" class="silver-img" id="silver-img">
+   <img src="https://cdn3d.iconscout.com/3d/premium/thumb/diamond-4976017-4146700.png?f=webp " alt="Additional Image" class="additional-img">
+   <div class="container2"><div class="row">
+       <button class="button1">Games</button>
+       <button class="button2">Claim</button></div></div>
+   
+ </div>
+ <div class="bottom-nav">
+   <a href="index.html">
+       <img src="https://cdn3d.iconscout.com/3d/premium/thumb/fox-wearing-cool-pixel-glasses-emoticon-9760331-7913950.png?f=webp" alt="Mine">
+       <span>Fox</span>
+   </a>
+   <a href="refer.html">
+       <img src="  https://cdn3d.iconscout.com/3d/premium/thumb/user-11199370-8967022.png?f=webp" alt="Earn">
+       <span>Team</span>
+   </a>
+   <a href="task.html">
+       <img src="https://cdn3d.iconscout.com/3d/premium/thumb/trophy-6275998-5174884.png?f=webp" alt="Airdrop">
+       <span>Task</span>
+   </a>
+   <a href="event.html">
+    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/confetti-6587022-5449103.png?f=webp" alt="allet">
+    <span>Events </span>
+</a>
+   <a href="exchange.html">
+       <img src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-5781416-4848491.png?f=webp" alt="friends">
+       <span>Exchange</span>
+   </a>
+</div>
+
+ <!-- Add a popup container -->
+ 
+
+
+ <div class="popup-container" id="popup-container" >
+  <div class="popup">
+    <h2>Welcome Bonus!</h2>
+    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/gift-6456771-5326824.png?f=webp" height="100px" alt="welcome">
+
+    <p>Claim 10,000 bonus coins!</p>
+    <button class="claim-button" id="claim-button">Claim</button>
+  </div>
+
+</div>
+
+ <script>
+  // Initial coins value
+  let coins = 0;
+  
+  // Function to update coins and save to local storage
+  const updateCoins = () => {
+    localStorage.setItem('coins', coins.toString());
+    document.getElementById('numbers').innerText = coins.toString();
+  };
+
+  // Event listener for clicking on silver-img
+  document.getElementById('silver-img').addEventListener('click', () => {
+    coins += 1;
+    updateCoins();
+
+    document.getElementById('silver-img').classList.add('vibrate');
+    setTimeout(() => {
+      document.getElementById('silver-img').classList.remove('vibrate');
+    }, 50);
+  });
+
+  // Event listener for clicking on c claim button
+  document.getElementById('claim-button').addEventListener('click', () => {
+    coins += 10000;
+    updateCoins();
+    document.getElementById('popup-container').style.display = 'none';
+  });
+
+  // Check if user has visited the site before
+  if (!localStorage.getItem('visited')) {
+    localStorage.setItem('visited', 'true');
+    document.getElementById('popup-container').style.display = 'block';
+    // Initialize coins to 0 on first visit
+    localStorage.setItem('coins', '0');
+    coins = 0;
+    updateCoins();
+  } else {
+    document.getElementById('popup-container').style.display = 'none';
+    // Retrieve coins from local storage if it exists
+    const savedCoins = localStorage.getItem('coins');
+    if (savedCoins!== null) {
+      coins = parseInt(savedCoins, 10);
+      updateCoins();
+    }
+
+
+
+  }
+
+
+ 
+  
+</script>
+</body>
+</html>
