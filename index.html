@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap" rel="stylesheet">
-
-  <style>
+   <style>
        /* Add this to prevent zooming on mobile devices */
        * {
         -webkit-touch-callout: none;
@@ -33,7 +31,7 @@
     }
 
   .container {
-    
+      margin-top: 70px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -175,7 +173,7 @@ s
 
        .bottom-nav {
            position: fixed;
-           bottom: 60px;
+           bottom: 40px;
            left: 50%;
            
            transform: translateX(-50%);
@@ -192,10 +190,7 @@ s
            border: 1px solid #5c5c5c;
            overflow: hidden;
            -webkit-tap-highlight-color: transparent; 
-           font-family: "Fustat", sans-serif;
-           font-optical-sizing: auto;
-           font-weight:lighter;
-           font-style: normal;
+           
           
            
          }
@@ -321,8 +316,6 @@ s
             position: absolute;
             left: 10px;
             top: 10px;
-            position: absolute;
-    
           }
           
           .coinads {
@@ -331,7 +324,7 @@ s
             background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/coin-5204463-4340787.png?f=webp');
             background-size: cover;
             position: absolute;
-            right: 70px;
+            right: 75px;
             bottom: 4px;
           }
           
@@ -339,7 +332,7 @@ s
             position: absolute;
             left: 50px;
             top: 0px;
-            font-size:15px;
+            font-size: 20px;
             font-weight: bold;
             color: #FFFFFF;
             font-family: "Fustat", sans-serif;
@@ -369,7 +362,7 @@ s
  <div class="container">
   <a href="https://dolatiaschan.com/4/7698687" target="_blank" rel="noopener">
     <div class="adsbutton">
-      <p class="rocket"></p>
+      <div class="rocket"></div>
       <div class="coinads"></div>
       <span class="watchads">Watch Ads</span>
       <span class="rewardcoin">+1000</span>
@@ -483,6 +476,26 @@ s
 
  
   
+  const adsButton = document.querySelector('a[href="https://dolatiaschan.com/4/7698687"]');
+
+let timer = null;
+let countdown = 20;
+
+adsButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  window.open(adsButton.href, '_blank');
+  adsButton.disabled = true; // lock the button
+  timer = setInterval(() => {
+    countdown--;
+    adsButton.textContent = `Watch Ads (${countdown} sec left)`;
+    if (countdown <= 0) {
+      clearInterval(timer);
+      adsButton.disabled = false; // unlock the button
+      adsButton.textContent = 'Watch Ads';
+      countdown = 20; // reset countdown
+    }
+  }, 1000); // update every 1 second
+});
 </script>
 </body>
-</html>
+</html>s
