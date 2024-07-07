@@ -491,8 +491,11 @@
           img.style.width = '30px';
           img.style.height = '30px';
           e.target.appendChild(img);
+      
+          // Remove the button permanently
+          e.target.remove();
         });
-      }); 
+      });
       </script>
 
 </body>
