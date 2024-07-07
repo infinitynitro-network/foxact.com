@@ -493,8 +493,27 @@
           e.target.appendChild(img);
       
           // Remove the button permanently
+          const parent = e.target.parentNode;
           e.target.remove();
+          const claimedText = document.createElement('span');
+          claimedText.textContent = 'Claimed';
+          parent.appendChild(claimedText);
+      
+          // Store the fact that the button has been removed
+          localStorage.setItem(`removed-${link}`, true);
         });
+      });
+      
+      // When the page loads, check if the button has been removed before
+      document.querySelectorAll('.claim-button').forEach((button) => {
+        const link = button.getAttribute('data-link');
+        if (localStorage.getItem(`removed-${link}`) === 'true') {
+          const parent = button.parentNode;
+          button.remove();
+          const claimedText = document.createElement('span');
+          claimedText.textContent = 'Claimed';
+          parent.appendChild(claimedText);
+        }
       });
       </script>
 
