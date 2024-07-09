@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dollar and Numbers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+   <style>
+       /* Add this to prevent zooming on mobile devices */
+       * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #000000;
+      color: #fff;
+      font-family: sans-serif;
+     
 
+     margin-bottom: 20vh;
+    }
+
+    .choose{
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+        background-color: transparent;
+
+       
+
+    }
+
+    .container{
+        
+            text-align: center;
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        
+    }
+
+    .task-button {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        font-family: "Fustat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+        padding: 15px;
+       
+        border: none;
+        border-radius: 20px;
+        background-color: #202020;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .task-button.active {
+      border: 2px solid #fff; /* add a white border */
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* add a subtle shadow */
+    }
+
+    .tasks {
+        width: 100%;
+        max-width: auto;
+        margin-bottom: 10px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="choose">Choose Exchange</h1>
+        <img    src="https://cdn3d.iconscout.com/3d/premium/thumb/wallet-5179193-4347019.png?f=webp" alt="Invite Icon" height="150px">
+        
+    <div class="tasks">
+     <div class="task-button" data-exchange="binance">
+        <img  src="https://cdn3d.iconscout.com/3d/premium/thumb/binance-5559836-4642649.png" alt="Faucet Image" class="icons"> 
+        <a class="task-button">Binance</a></div> </div>
+
+        
+
+        
+        
+   
+     <div class="tasks">
+     <div class="task-button" data-exchange="bybit">
+        <img  src="https://cryptobonuses.com/wp-content/uploads/2023/02/Bybit-Logo.png" alt="Faucet Image" width="30px" height="10px"> 
+        <a class="task-button">Bybit</a></div>
+    </div>
+
+    <div class="tasks">
+        <div class="task-button" data-exchange="solana">
+           <img  src="https://www.cryptovantage.com/app/uploads/2021/05/Solana-logo-1.png" alt="Faucet Image" height="30px"> 
+           <a class="task-button">Solana</a></div>
+       </div>
+    </div>
+
+
+
+    <script>
+  const taskButtons = document.querySelectorAll('.task-button');
+  let selectedButton = null;
+
+  taskButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (selectedButton) {
+        selectedButton.classList.remove('active');
+      }
+      selectedButton = button;
+      button.classList.add('active');
+      // Save the selected exchange to local storage
+      localStorage.setItem('selectedExchange', button.getAttribute('data-exchange'));
+    });
+  });
+
+  // Load the selected exchange from local storage
+  const storedExchange = localStorage.getItem('selectedExchange');
+  if (storedExchange) {
+    const selectedButton = document.querySelector(`[data-exchange="${storedExchange}"]`);
+    if (selectedButton) {
+      selectedButton.classList.add('active');
+    }
+  }
+</script>
+</body>
+</html>
