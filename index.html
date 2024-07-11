@@ -91,7 +91,30 @@
         -webkit-tap-highlight-color: transparent; 
     }
 
-s
+    .coin-animation {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #333;
+      padding: 4px 8px;
+      border-radius: 4px;
+      animation: coinAnimation 0.5s ease-out;
+    }
+  
+    @keyframes coinAnimation {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-20px) scale(1.5);
+        opacity: 0;
+      }
+    }
 
     
 
@@ -207,8 +230,8 @@ s
            }
    
            .bottom-nav img {
-               width: 35px;
-               height: 35px;
+               width: 40px;
+               height: 40px;
               
                margin-bottom: 6px;
            }
@@ -299,6 +322,7 @@ s
             width: 110px;
             background-color: rgb(53, 53, 53);
             border: none;
+            border-color: #fff;
             color: white;
             
             cursor: pointer;
@@ -307,50 +331,47 @@ s
             position: fixed; /* to make the button a positioning context */
             padding: 10px; /* add some padding to the button */
           }
+
+
+          .adsbutton2 {
+            display: block;
+            cursor: pointer;
+             top: 10px;
+           left: 20px;
+           
+          
+            border: none;
+            color: white;
+            
+            cursor: pointer;
+            border-radius: 15px;
+          
+            position: fixed; /* to make the button a positioning context */
+            
+          }
           
           .rocket {
-            width: 30px;
-            height: 30px;
-            background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/space-shuttle-flying-9077681-7460825.png?f=webp');
+            width: 40px;
+            height: 40px;
+            background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/secured-wallet-5046524-4206899.png?f=webp');
             background-size: cover;
-            position: block;
-            left: 10px;
-            top: 10px;
+            margin-top: -10px;
+           
           }
           
-          .coinads {
-            width: 22px;
-            height: 22px;
-            background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/coin-5204463-4340787.png?f=webp');
-            background-size: cover;
-            position: absolute;
-            right: 65px;
-            bottom: 4px;
-          }
           
-          .watchads {
-            position: absolute;
-            left: 50px;
-            top: 0px;
-            font-size: 15px;
-            
-            color: #FFFFFF;
-            font-family: "Fustat", sans-serif;
-            font-optical-sizing: auto;
-            
-            font-style: normal;
-          }
+        
           
           .rewardcoin {
             position: absolute;
-            right: 10px;
-            bottom: 4px;
+            right: 30px;
+            top: 25%;
             font-size: 15px;
-            font-weight: bold;
+            
             color: #FFFFFF;
-            font-family: "Fustat", sans-serif;
+            font-family: "Fustat", sans-serif; 
             font-optical-sizing: auto;
-            font-weight: weight;
+            font-weight: bold;
             font-style: normal;
           }
 
@@ -360,12 +381,13 @@ s
 <body>
   
  <div class="container">
+  <img src="https://cdn3d.iconscout.com/3d/premium/thumb/shopping-bag-8616497-6855318.png?f=webp" alt="bag " height="60  px" class="adsbutton2">
   <a href="https://dolatiaschan.com/4/7698687" target="_blank" rel="noopener">
     <div class="adsbutton">
       <div class="rocket"></div>
-      <div class="coinads"></div>
-      <span class="watchads">Watch Ads</span>
-      <span class="rewardcoin">+1000</span>
+      
+      
+      <span class="rewardcoin">Wallet</span>
     </div>
   </a>
                                                
@@ -476,26 +498,7 @@ s
 
  
   
-  const adsButton = document.querySelector('a[href="https://dolatiaschan.com/4/7698687"]');
-
-let timer = null;
-let countdown = 20;
-
-adsButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  window.open(adsButton.href, '_blank');
-  adsButton.disabled = true; // lock the button
-  timer = setInterval(() => {
-    countdown--;
-    adsButton.textContent = `Watch Ads (${countdown} sec left)`;
-    if (countdown <= 0) {
-      clearInterval(timer);
-      adsButton.disabled = false; // unlock the button
-      adsButton.textContent = 'Watch Ads';
-      countdown = 20; // reset countdown
-    }
-  }, 1000); // update every 1 second
-});
+ 
 </script>
 </body>
 </html>
