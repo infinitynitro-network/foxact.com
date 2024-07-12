@@ -1,504 +1,412 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">  
+    <title>Memory Card Game | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dollar and Numbers</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-   <style>
-       /* Add this to prevent zooming on mobile devices */
-       * {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-    body {
-      background-color: #000000;
-      color: #fff;
-      font-family: sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-     margin: auto;
-     margin-bottom: 20vh;
-    }
-
-  .container {
-      margin-top: 70px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-   .container2 {
-      
-        align-items: center;
-        flex-direction: column;
-       
-    
-    
-    
-
-      }
-  .row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      
-    }
-
-  .dollar-img {
-      width: 70px;
-      height: 70px;
-      box-shadow: 0px -1px 100px 50px rgba(161, 0, 255, 0.3);
-      object-fit: cover;
-      background: rgb(46, 8, 68);
-      margin-right: 20px;
-      padding: 10px;
-      border-radius: 50%;
-     
-
-    }
-
-  .numbers {
-      margin-right: 100px;
-      font-size: 3em;
-    
-   
-      
-        font-family: "Archivo Black", sans-serif;
-        font-weight: 100;
-        font-style: normal;
-      
-      
-      }
-      
-      .silver-img {
-        width: 200px;
-        height: 200px;
-        cursor: pointer;
-        margin-top: 20px;
-        border-radius: 50%;
-        transition: transform 0.5s; /* add transition effect */
-    
-       
-        -webkit-tap-highlight-color: transparent; 
-    }
-
-    .coin-animation {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      background-color: #333;
-      padding: 4px 8px;
-      border-radius: 4px;
-      animation: coinAnimation 0.5s ease-out;
-    }
-  
-    @keyframes coinAnimation {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-20px) scale(1.5);
-        opacity: 0;
-      }
-    }
-
-    
-
-  .silver-img.flip {
-      transform: rotateY(180deg); /* add flip effect */
-    }
-
-  .silver-img.vibrate {
-      animation: vibrate 0.5s linear infinite;
-    }
-
-    @keyframes vibrate {
-      0% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(50px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-  .additional-img {
-        margin-top: 20px;
-        padding: 20px;
-        width: 70px;
-        height: 70px;
-      
-        object-fit: cover;
-        border-radius: 50%;
-       
-
-    }
-  .button1{
-   margin-right: 
-   50px;
-   text-align: center;
-    
-    font-family: "Ubuntu", sans-serif;
-   
-    font-style: normal;
-  
-   font-weight: 500;
-    
-   
-    margin-top: 20px;
-    color: #000000;
-    font-size: 19px;
-    width: 109px;
-    height: 43px;
-    border-radius: 10px;
-    background: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    cursor: pointer;
-    }
-    .button2{
-        
-      text-align: center;
-      
-      
-       font-family: "Ubuntu", sans-serif;
-       font-weight: 500;
-       font-style: normal;
-     
-      
-       
-       margin-top: 20px;
-       color: #fff;
-       font-size: 19px;
-       width: 109px;
-       height: 43px;
-       border-radius: 10px;
-       background: #414141;
-       border: 1px solid #FFFFFF;
-       cursor: pointer;
-       }
-
-
-       .bottom-nav {
-           position: fixed;
-           bottom: 40px;
-           left: 50%;
-           
-           transform: translateX(-50%);
-           height: 30px;
-           width: 79%;
-           background-color: #383838;
-           color: #c9c9c9;
-           padding: 20px ;
-           display: flex;
-           justify-content: space-around;
-           align-items: center;
-           border-radius: 20px;
-           z-index: 100;
-           border: 1px solid #5c5c5c;
-           overflow: hidden;
-           -webkit-tap-highlight-color: transparent; 
-           
-          
-           
-         }
-   
-           .bottom-nav a {
-               text-decoration: none;
-               color: #ffffff;
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               padding: 10px;
-               font-size: 14px;
-               
-           }
-   
-           .bottom-nav img {
-               width: 40px;
-               height: 40px;
-              
-               margin-bottom: 6px;
-           }
-   
-   
-   
-   
-           .bottom-nav span {
-               font-weight: bold;
-           }
-   
-           .bottom-nav a:active {
-               transform: translateY(1px);
-               background-color: #474747d7;
-               border-radius: 10px;
-           }
-
-           .popup-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            background-color: #000000;
-            padding: 20px;
-            border: 1px solid #FFFFFF;
-            border-radius: 20px;
-            width: 300px;
-            text-align: center;
-            color: #ffffff;
-          }
-          
-          .popup {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-          }
-          
-          h2 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-          }
-          
-          p {
-            font-size: 18px;
-            margin-bottom: 20px;
-          }
-          
-          .claim-button {
-            background-color: #FFFFFF;
-            color: #271f1f;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            margin: 10% auto;
-            border-radius: 50px;
-          }
-          
-          .claim-button:hover {
-            background-color: #CCCCCC;
-          }
-
-
-          .ads{
-            height: 70px;
-            width: 70px;
-            display: block;
-           cursor: pointer;
-            margin-left:  auto; 
-
-          }
-
-
-        
-
-
-
-
-          .adsbutton {
-            display: block;
-            cursor: pointer;
-             top: 10px;
-           right: 20px;
-            height: 20px;
-            width: 110px;
-            background-color: rgb(53, 53, 53);
-            border: none;
-            border-color: #fff;
-            color: white;
-            
-            cursor: pointer;
-            border-radius: 15px;
-          
-            position: fixed; /* to make the button a positioning context */
-            padding: 10px; /* add some padding to the button */
-          }
-
-
-          .adsbutton2 {
-            display: block;
-            cursor: pointer;
-             top: 0px;
-           left: 0px;
-           
-          
-            border: none;
-            color: white;
-            
-            cursor: pointer;
-            border-radius: 15px;
-          
-            position: fixed; /* to make the button a positioning context */
-            
-          }
-          
-          .rocket {
-            width: 40px;
-            height: 40px;
-            background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/secured-wallet-5046524-4206899.png?f=webp');
-            background-size: cover;
-            margin-top: -10px;
-           
-          }
-          
-          
-        
-          
-          .rewardcoin {
-            position: absolute;
-            right: 30px;
-            top: 25%;
-            font-size: 15px;
-            
-            color: #FFFFFF;
-            font-family: "Fustat", sans-serif; 
-            font-optical-sizing: auto;
-            font-weight: bold;
-            font-style: normal;
-          }
-
-        
- </style>
-</head>
-<body>
-  
- <div class="container">
-  <img src="https://cdn3d.iconscout.com/3d/premium/thumb/shopping-bag-8616497-6855318.png?f=webp" alt="bag " height="60  px" class="adsbutton2">
-  <a href="wallet.html" target="_blank" rel="noopener">
-    <div class="adsbutton">
-      <div class="rocket"></div>
-      
-      
-      <span class="rewardcoin">Wallet</span>
-    </div>
-  </a>
-                                               
-   <div class="row">
-     
-    
-
-     <img src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-4540902-3769806.png?f=webp" alt="Dollar" class="dollar-img">
-     <div class="numbers" id="numbers">0</div>
-     
-   </div>
-   <div class="ads">
-    <a href="ads.html" > <img src="https://cdn3d.iconscout.com/3d/premium/thumb/ads-11066612-8885267.png?f=webp" alt="Dollar" class="ads"></a></div>
-   <img src="https://github.com/infinitynitro-network/infinity.com/assets/173025511/cc12875e-f8c6-473a-afd7-77fd03954380" alt="Silver" class="silver-img" id="silver-img">
-   <img src="https://cdn3d.iconscout.com/3d/premium/thumb/diamond-4976017-4146700.png?f=webp " alt="Additional Image" class="additional-img">
-   <div class="container2"><div class="row">
-       <button class="button1" onclick="location.href='games.html'">Games</button>
-       <button class="button2" onclick="location.href='claim.html'" >Claim</button></div></div>
-   
- </div>
- <div class="bottom-nav">
-   <a href="index.html">
-       <img src="https://cdn3d.iconscout.com/3d/premium/thumb/fox-wearing-cool-pixel-glasses-emoticon-9760331-7913950.png?f=webp" alt="Mine">
-       <span>Fox</span>
-   </a>
-   <a href="refer.html">
-       <img src="  https://cdn3d.iconscout.com/3d/premium/thumb/user-11199370-8967022.png?f=webp" alt="Earn">
-       <span>Team</span>
-   </a>
-   <a href="task.html">
-       <img src="https://cdn3d.iconscout.com/3d/premium/thumb/trophy-6275998-5174884.png?f=webp" alt="Airdrop">
-       <span>Task</span>
-   </a>
-   <a href="event.html">
-    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/confetti-6587022-5449103.png?f=webp" alt="allet">
-    <span>Events </span>
-</a>
-   <a href="exchange.html">
-       <img src="https://cdn3d.iconscout.com/3d/premium/thumb/dollar-coin-5781416-4848491.png?f=webp" alt="friends">
-       <span>Exchange</span>
-   </a>
-</div>
-
- <!-- Add a popup container -->
- 
-
-
- <div class="popup-container" id="popup-container" >
-  <div class="popup">
-    <h2>Welcome Bonus!</h2>
-    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/gift-6456771-5326824.png?f=webp" height="100px" alt="welcome">
-
-    <p>Claim 10,000 bonus coins!</p>
-    <button class="claim-button" id="claim-button">Claim</button>
-  </div>
-
-</div>
-
- <script>
-  // Initial coins value
-  let coins = 0;
-  
-  // Function to update coins and save to local storage
-  const updateCoins = () => {
-    localStorage.setItem('coins', coins.toString());
-    document.getElementById('numbers').innerText = coins.toString();
-  };
-
-  // Event listener for clicking on silver-img
-  document.getElementById('silver-img').addEventListener('click', () => {
-    coins += 1;
-    updateCoins();
-
-    document.getElementById('silver-img').classList.add('vibrate');
-    setTimeout(() => {
-      document.getElementById('silver-img').classList.remove('vibrate');
-    }, 50);
-  });
-
-  // Event listener for clicking on c claim button
-  document.getElementById('claim-button').addEventListener('click', () => {
-    coins += 10000;
-    updateCoins();
-    document.getElementById('popup-container').style.display = 'none';
-  });
-
-  // Check if user has visited the site before
-  if (!localStorage.getItem('visited')) {
-    localStorage.setItem('visited', 'true');
-    document.getElementById('popup-container').style.display = 'block';
-    // Initialize coins to 0 on first visit
-    localStorage.setItem('coins', '0');
-    coins = 0;
-    updateCoins();
-  } else {
-    document.getElementById('popup-container').style.display = 'none';
-    // Retrieve coins from local storage if it exists
-    const savedCoins = localStorage.getItem('coins');
-    if (savedCoins!== null) {
-      coins = parseInt(savedCoins, 10);
-      updateCoins();
-    }
-
-
-
+    <style>
+      /* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+p{
+  font-size: 20px;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #6563ff;
+}
+::selection{
+  color: #fff;
+  background: #6563ff;
+}
+.wrapper{
+  padding: 25px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.cards, .card, .view, .details, p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cards{
+  height: 350px;
+  width: 350px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cards .card{
+  cursor: pointer;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  height: calc(100% / 4 - 10px);
+  width: calc(100% / 4 - 10px);
+}
+.card.shake{
+  animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+  0%, 100%{
+    transform: translateX(0);
   }
+  20%{
+    transform: translateX(-13px);
+  }
+  40%{
+    transform: translateX(13px);
+  }
+  60%{
+    transform: translateX(-8px);
+  }
+  80%{
+    transform: translateX(8px);
+  }
+}
+.cards .card .view{
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  background: #fff;
+  border-radius: 7px;
+  backface-visibility: hidden;
+  transition: transform 0.25s linear;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.card .front-view img{
+  max-width: 17px;
+}
+.card .back-view{
+  transform: rotateY(-180deg);
+}
+.card .back-view img{
+  max-width: 40px;
+}
+.card.flip .front-view{
+  transform: rotateY(180deg);
+}
+.card.flip .back-view{
+  transform: rotateY(0);
+}
 
+.details{
+  width: 100%;
+  margin-top: 15px;
+  padding: 0 20px;
+  border-radius: 7px;
+  background: #fff;
+  height: calc(100% / 4 - 30px);
+  justify-content: space-between;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.details p{
+  font-size: 18px;
+  height: 17px;
+  padding-right: 18px;
+  border-right: 1px solid #ccc;
+}
+.details p span{
+  margin-left: 8px;
+}
+.details p b{
+  font-weight: 500;
+}
+.details button{
+  cursor: pointer;
+  font-size: 14px;
+  color: #6563ff;
+  border-radius: 4px;
+  padding: 4px 11px;
+  background: #fff;
+  border: 2px solid #6563ff;
+  transition: 0.3s ease;
+}
+.details button:hover{
+  color: #fff;
+  background: #6563ff;
+}
 
- 
-  
- 
-</script>
-</body>
+@media screen and (max-width: 700px) {
+  .cards{
+    height: 350px;
+    width: 350px;
+  }
+  .card .front-view img{
+    max-width: 16px;
+  }
+  .card .back-view img{
+    max-width: 40px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .cards{
+    height: 300px;
+    width: 300px;
+  }
+  .card .back-view img{
+    max-width: 35px;
+  }
+  .details{
+    margin-top: 10px;
+    padding: 0 15px;
+    height: calc(100% / 4 - 20px);
+  }
+  .details p{
+    height: 15px;
+    font-size: 17px;
+    padding-right: 13px;
+  }
+  .details button{
+    font-size: 13px;
+    padding: 5px 10px;
+    border: none;
+    color: #fff;
+    background: #6563ff;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <ul class="cards">
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/bitcoin-4019093-3337393@0.png?f=webp" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-2.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-3.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-4.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-5.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-6.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-5.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-6.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-1.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-2.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-3.png" alt="card-img">
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="images/que_icon.svg" alt="icon">
+          </div>
+          <div class="view back-view">
+            <img src="images/img-4.png" alt="card-img">
+          </div>
+        </li>
+        <div class="details">
+          <p class="time">Time: <span><b>20</b>s</span></p>
+          <p class="flips">Flips: <span><b>0</b></span></p>
+          <button>Refresh</button>
+        </div>
+      </ul>
+    </div>
+
+    <script>
+      const cards = document.querySelectorAll(".card"),
+timeTag = document.querySelector(".time b"),
+flipsTag = document.querySelector(".flips b"),
+refreshBtn = document.querySelector(".details button"),
+coinTag = document.querySelector(".coins b"),
+claimBtn = document.querySelector(".claim-button");
+
+let maxTime = 100;
+let timeLeft = maxTime;
+let flips = 0;
+let matchedCard = 0;
+let disableDeck = false;
+let isPlaying = false;
+let cardOne, cardTwo, timer;
+let coins = 100; // initial coins
+let flipPoints = 0; // initial flip points
+
+function initTimer() {
+    if(timeLeft <= 0) {
+        return clearInterval(timer);
+    }
+    timeLeft--;
+    timeTag.innerText = timeLeft;
+}
+
+function flipCard({target: clickedCard}) {
+    if(!isPlaying) {
+        isPlaying = true;
+        timer = setInterval(initTimer, 1000);
+    }
+    if(clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
+        flips++;
+        flipsTag.innerText = flips;
+        clickedCard.classList.add("flip");
+        if(!cardOne) {
+            return cardOne = clickedCard;
+        }
+        cardTwo = clickedCard;
+        disableDeck = true;
+        let cardOneImg = cardOne.querySelector(".back-view img").src,
+        cardTwoImg = cardTwo.querySelector(".back-view img").src;
+        matchCards(cardOneImg, cardTwoImg);
+    }
+}
+
+function matchCards(img1, img2) {
+    if(img1 === img2) {
+        matchedCard++;
+        if(matchedCard == 6 && timeLeft > 0) {
+            return clearInterval(timer);
+        }
+        cardOne.removeEventListener("click", flipCard);
+        cardTwo.removeEventListener("click", flipCard);
+        cardOne = cardTwo = "";
+        return disableDeck = false;
+        coins += 10; // reward 10 coins for each match
+        coinTag.innerText = coins;
+    }
+
+    setTimeout(() => {
+        cardOne.classList.add("shake");
+        cardTwo.classList.add("shake");
+    }, 400);
+
+    setTimeout(() => {
+        cardOne.classList.remove("shake", "flip");
+        cardTwo.classList.remove("shake", "flip");
+        cardOne = cardTwo = "";
+        disableDeck = false;
+    }, 1200);
+}
+
+function shuffleCard() {
+    timeLeft = maxTime;
+    flips = matchedCard = 0;
+    cardOne = cardTwo = "";
+    clearInterval(timer);
+    timeTag.innerText = timeLeft;
+    flipsTag.innerText = flips;
+    disableDeck = isPlaying = false;
+
+    let arr = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
+    arr.sort(() => Math.random() > 0.5 ? 1 : -1);
+
+    cards.forEach((card, index) => {
+        card.classList.remove("flip");
+        let imgTag = card.querySelector(".back-view img");
+        setTimeout(() => {
+            imgTag.src = `images/img-${arr[index]}.png`;
+        }, 500);
+        card.addEventListener("click", flipCard);
+    });
+    coinTag.innerText = coins; // update coin display
+}
+
+shuffleCard();
+
+refreshBtn.addEventListener("click", () => {
+    if(coins >= 10) { // deduct 10 coins for each refresh
+        coins -= 10;
+        flipPoints += flips; // add flip points to coin counter
+        flips = 0; // reset flip count
+        flipsTag.innerText = flips;
+        shuffleCard();
+    } else {
+        alert("Not enough coins!");
+    }
+});
+
+claimBtn.addEventListener("click", () => {
+    coins += flipPoints; // add flip points to coin counter
+    flipPoints = 0; // reset flip points
+    coinTag.innerText = coins; // update coin display
+});
+
+cards.forEach(card => {
+    card.addEventListener("click", flipCard);
+});
+    </script>
+    
+  </body>
 </html>
